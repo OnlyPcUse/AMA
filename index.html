@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auto Ad Page</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f3f4f6;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      max-width: 420px;
+      margin: 20px auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+    }
+
+    #autoBtn {
+      background: #2563eb;
+    }
+
+    #stopBtn {
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+    }
+
+    #timer {
+      font-size: 18px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    .ad-block {
+      margin: 20px auto;
+    }
+  </style>
+
+  <!-- ✅ Social Bar -->
+  <script type='text/javascript' src='//morallyfitful.com/34/9f/be/349fbecb3726fbe136d0dad693e2d554.js'></script>
+</head>
+<body>
+
+  <!-- ✅ 728x90 Banner -->
+  <div class="ad-block">
+    <script type="text/javascript">
+	atOptions = {
+		'key' : '758883eba9d10a4c923201990a8d8901',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//morallyfitful.com/758883eba9d10a4c923201990a8d8901/invoke.js"></script>
+  </div>
+
+  <div class="container">
+    <h2>Auto Ad System</h2>
+    <button id="autoBtn" onclick="startAutoRefresh()">Auto Ads</button>
+    <button id="stopBtn" onclick="stopAutoRefresh()">Stop Auto Ads</button>
+    <div id="timer">Next refresh in <span id="count">30</span>s</div>
+
+    <!-- ✅ Native Banner -->
+    <div class="ad-block">
+      <script async="async" data-cfasync="false" src="//morallyfitful.com/119853cdacb9fa84273a08e053568eb1/invoke.js"></script>
+<div id="container-119853cdacb9fa84273a08e053568eb1"></div>
+    </div>
+  </div>
+
+  <!-- ✅ 468x60 Banner -->
+  <div class="ad-block">
+    <script type="text/javascript">
+	atOptions = {
+		'key' : '852a0357aad446318e77579608a2cf4d',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//morallyfitful.com/852a0357aad446318e77579608a2cf4d/invoke.js"></script>
+  </div>
+
+  <!-- ✅ Popunder -->
+  <script type='text/javascript' src='//morallyfitful.com/3a/1f/b2/3a1fb2e4474d862c0bdcde3eb2f3a208.js'></script>
+
+  <script>
+    let refreshActive = false;
+    let countdown = 30;
+    let timerInterval;
+
+    function startAutoRefresh() {
+      if (refreshActive) return;
+      refreshActive = true;
+      document.getElementById("timer").style.display = "block";
+      countdown = 30;
+      document.getElementById("count").textContent = countdown;
+
+      timerInterval = setInterval(() => {
+        countdown--;
+        document.getElementById("count").textContent = countdown;
+
+        if (countdown <= 0) {
+          clearInterval(timerInterval);
+          location.reload(); // Auto refresh
+        }
+      }, 1000);
+    }
+
+    function stopAutoRefresh() {
+      refreshActive = false;
+      clearInterval(timerInterval);
+      document.getElementById("timer").style.display = "none";
+    }
+
+    // ✅ Auto restart if coming from same site (after reload)
+    window.onload = function () {
+      if (document.referrer.includes(window.location.hostname)) {
+        startAutoRefresh();
+      }
+    }
+  </script>
+</body>
+</html>
